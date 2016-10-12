@@ -8,14 +8,17 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Test1 extends ApplicationAdapter {
-	SpriteBatch batch;
+	SpriteBatch batch, batch2;
 	Texture img;
+	Texture grass;
 	float x,y;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		batch2 = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+		grass = new Texture("grass.jpeg");
 	}
 
 	@Override
@@ -40,6 +43,10 @@ public class Test1 extends ApplicationAdapter {
 	
 		
 		batch.begin();
+		batch.draw(grass,0,0);
+		batch.draw(grass,640,480);
+		batch.draw(grass,640,0);
+		batch.draw(grass,0,480);
 		batch.draw(img, x, y);
 		batch.end();
 	}
