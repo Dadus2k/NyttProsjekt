@@ -38,8 +38,9 @@ public class Test1 extends ApplicationAdapter {
 			x = x+ 4;
 		}
 		if(Gdx.input.isKeyPressed(Keys.LEFT)){
-			x = x- 4;
+			x = x- 10;
 		}
+
 	
 		
 		batch.begin();
