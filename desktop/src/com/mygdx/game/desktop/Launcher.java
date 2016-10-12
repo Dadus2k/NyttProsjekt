@@ -9,5 +9,7 @@ public class Launcher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		new LwjglApplication(new Test1(), config);
+		config.height = 1080;
+		config.width = 1920;
 	}
 }
