@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Test1 extends ApplicationAdapter {
+public class FogMain extends ApplicationAdapter {
 	SpriteBatch batch, batch2;
 	Texture img;
 	Texture grass;
