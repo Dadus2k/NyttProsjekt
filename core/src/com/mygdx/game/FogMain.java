@@ -72,7 +72,9 @@ public class FogMain extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		Gdx.app.log(TEST, "dispose ()");
-		Gdx.audio.newMusic(Gdx.files.internal("AOE_mp3.mp3"));
+		Gdx.audio.newMusic(Gdx.files.internal("AOE_mp3.mp3")).dispose();;
+		batch.dispose();
+		menuPic.dispose();
 //		batch.dispose();
 //		img.dispose();
 	}
