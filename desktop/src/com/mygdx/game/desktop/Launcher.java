@@ -8,7 +8,7 @@ public class Launcher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		new LwjglApplication(new FogMain(), config);
-		config.height = 1024;
-		config.width = 1920;
+		config.height = 851;
+		config.width = 1161;
 	}
 }
