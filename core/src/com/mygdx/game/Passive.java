@@ -1,5 +1,5 @@
 package com.mygdx.game;
 
-public interface Passive {
+public interface Passive extends Abstract_life {
 
 }
