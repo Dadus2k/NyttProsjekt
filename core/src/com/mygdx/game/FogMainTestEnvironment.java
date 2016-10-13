@@ -4,8 +4,10 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class FogMainTestEnvironment extends ApplicationAdapter {
@@ -13,10 +15,15 @@ public class FogMainTestEnvironment extends ApplicationAdapter {
 	Texture img;
 	float x,y;
 	Texture menuPic;
+	private BitmapFont font;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		
+		font = new BitmapFont();
+		font.setColor(Color.RED);
+		
 		img = new Texture("Monk.png");
 
 		Gdx.audio.newMusic(Gdx.files.internal("AOE_mp3.mp3")).play();
@@ -58,6 +65,7 @@ public class FogMainTestEnvironment extends ApplicationAdapter {
 		batch.begin();
 		batch.draw(menuPic,0,0);
 		batch.draw(img, x, y, 100,100);
+		font.draw(batch, "Press E", x+35, y+115);
 		batch.end();
 		Gdx.audio.newMusic(Gdx.files.internal("AOE_mp3.mp3"));
 
@@ -69,7 +77,7 @@ public class FogMainTestEnvironment extends ApplicationAdapter {
 		Gdx.audio.newMusic(Gdx.files.internal("Sound1.mp3")).dispose();
 		batch.dispose();
 		menuPic.dispose();
-		batch.dispose();
 		img.dispose();
+		font.dispose();
 	}
 }
