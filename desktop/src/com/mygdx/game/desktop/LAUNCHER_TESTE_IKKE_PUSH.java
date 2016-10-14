@@ -11,6 +11,7 @@ public class LAUNCHER_TESTE_IKKE_PUSH {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		new LwjglApplication(new FROGGERTESTER_IKKE_PUSH(), config);
+		config.title = "Fog";
 		config.vSyncEnabled = true;
 		config.height = 851;
 		config.width = 1161;

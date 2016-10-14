@@ -8,6 +8,7 @@ import com.mygdx.game.screens.Splash;
 //DETTE ER MARKUS SIN LILLE PRIVATE. HØRER SAMMEN MED LAUNCHER_TESTE_IKKE_PUSH!!!!!!
 public class FROGGERTESTER_IKKE_PUSH extends Game {
 
+	public static final String TITLE = "Fog";
 	
 	@Override
 	public void create () {
