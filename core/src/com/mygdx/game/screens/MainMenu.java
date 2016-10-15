@@ -32,7 +32,7 @@ public class MainMenu implements Screen {
 
 	private Stage stage;
 	private Table table;
-	private TextButton buttonPlay, buttonExit;
+	private TextButton buttonPlay, buttonExit, buttonOption;
 	private Label heading; 
 	private Skin skin;
 	private BitmapFont white;
@@ -41,7 +41,9 @@ public class MainMenu implements Screen {
 	@Override
 	public void show() {
 
-		Gdx.graphics.setWindowedMode(1161, 851); //Vet ikke om fungerer helt. Setter viduet til å passe menybildet
+		int menu_height = 851; //Settes til dette for å passe menybildet
+		int menu_width = 1161;//Settes til dette for å passe menybildet	
+		Gdx.graphics.setWindowedMode(menu_width , menu_height ); //Vet ikke om fungerer helt. Setter viduet til å passe menybildet
 		
 		stage = new Stage();
 	
@@ -94,12 +96,28 @@ public class MainMenu implements Screen {
 			@Override
 			public void clicked(InputEvent event, float x, float y) { 
 				menuMusic.stop();												   //Stopper menymusikken etter man har valgt å spille
+//				FROGGERTESTER_IKKE_PUSH.WIDTH = 1280;
+//				FROGGERTESTER_IKKE_PUSH.HEIGHT = 720;
 				Gdx.graphics.setWindowedMode(FROGGERTESTER_IKKE_PUSH.WIDTH, FROGGERTESTER_IKKE_PUSH.HEIGHT); //Setter vindustørelsen den oppringelige 1280x720.
 				((Game) Gdx.app.getApplicationListener()).setScreen(new Levels()); //Sender brukeren til spillet. Levels() er kart-klassen
 			}
 		});
 		buttonPlay.pad(30); //Lager mellomromm på sidene av knappen. uten er kantene helt intill skriften
 		
+		
+		//Option-knappen
+		buttonOption = new TextButton("OPTION", textButtonStyleBlack);
+		buttonOption.addListener(new ClickListener(){		//Oppretter funksjonalitet til knappen
+			@Override
+			public void clicked(InputEvent event, float x, float y) { 
+				menuMusic.stop();												   //Stopper menymusikken etter man har valgt å spille
+				//FROGGERTESTER_IKKE_PUSH.WIDTH = 1280;
+				//FROGGERTESTER_IKKE_PUSH.HEIGHT = 720;
+				//Gdx.graphics.setWindowedMode(FROGGERTESTER_IKKE_PUSH.WIDTH, FROGGERTESTER_IKKE_PUSH.HEIGHT); //Setter vindustørelsen den oppringelige 1280x720.
+				((Game) Gdx.app.getApplicationListener()).setScreen(new Option()); //Sender brukeren til spillet. Levels() er kart-klassen
+			}
+		});
+		buttonOption.pad(30); //Lager mellomromm på sidene av knappen. uten er kantene helt intill skriften
 		
 		//Lager heading
 		heading = new Label(FROGGERTESTER_IKKE_PUSH.TITLE, new LabelStyle(white, Color.WHITE));
@@ -111,6 +129,9 @@ public class MainMenu implements Screen {
 		table.row(); //Setter heading over buttonExit. uten blir heading satt ved siden av buttonPLAY.
 		table.add(buttonPlay);
 		table.getCell(buttonPlay).spaceBottom(10); //Setter mellomrom mellom buttonPLAY og buttonEXIT
+		table.row();
+		table.add(buttonOption);
+		table.getCell(buttonOption).spaceBottom(10); //Setter mellomrom mellom buttonPLAY og buttonEXIT
 		table.row();
 		table.add(buttonExit);
 		table.debug(); //TODO fjent når ferdig med implementasjoene
