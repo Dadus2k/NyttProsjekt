@@ -9,6 +9,8 @@ import com.mygdx.game.screens.Splash;
 public class FROGGERTESTER_IKKE_PUSH extends Game {
 
 	public static final String TITLE = "Fog";
+	public static final int WIDTH = 1280; 
+	public static final int HEIGHT = 720; 
 	
 	@Override
 	public void create () {

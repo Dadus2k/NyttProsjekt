@@ -41,6 +41,8 @@ public class MainMenu implements Screen {
 	@Override
 	public void show() {
 
+		Gdx.graphics.setWindowedMode(1161, 851); //Vet ikke om fungerer helt. Setter viduet til å passe menybildet
+		
 		stage = new Stage();
 	
 		Gdx.input.setInputProcessor(stage);
@@ -60,7 +62,7 @@ public class MainMenu implements Screen {
 		
 		
 		//Lager fonts
-		white = new BitmapFont(Gdx.files.internal("font/white.fnt"), false);
+		white = new BitmapFont(Gdx.files.internal("font/white.fnt"), false); //"false" betyr at fonten ikke blir invertert
 
 		
 		//Lager knapper
@@ -85,12 +87,14 @@ public class MainMenu implements Screen {
 		});
 		buttonExit.pad(30); //Lager mellomromm på sidene av knappen. uten er kantene helt intill skriften
 		
+		
 		//Play-knappen
 		buttonPlay = new TextButton("PLAY", textButtonStyleBlack);
 		buttonPlay.addListener(new ClickListener(){		//Oppretter funksjonalitet til knappen
 			@Override
 			public void clicked(InputEvent event, float x, float y) { 
-				menuMusic.stop();													//Stopper menymusikken etter man har valgt å spille
+				menuMusic.stop();												   //Stopper menymusikken etter man har valgt å spille
+				Gdx.graphics.setWindowedMode(FROGGERTESTER_IKKE_PUSH.WIDTH, FROGGERTESTER_IKKE_PUSH.HEIGHT); //Setter vindustørelsen den oppringelige 1280x720.
 				((Game) Gdx.app.getApplicationListener()).setScreen(new Levels()); //Sender brukeren til spillet. Levels() er kart-klassen
 			}
 		});
@@ -98,7 +102,6 @@ public class MainMenu implements Screen {
 		
 		
 		//Lager heading
-	
 		heading = new Label(FROGGERTESTER_IKKE_PUSH.TITLE, new LabelStyle(white, Color.WHITE));
 		heading.setFontScale(1); //(1) betyr 100% av den orgenale størrelsen
 		
@@ -144,6 +147,7 @@ public class MainMenu implements Screen {
 	@Override
 	public void resize(int width, int height) {
 		//Dette er utdatert i youtube-filmen jeg så. fungerer på andre måter
+		stage.getViewport().update(width, height, true); //Denne måten ser ut til å funke. Bruk dette! "The last parameter "true" will center the camera in the screen"
 
 	}
 
