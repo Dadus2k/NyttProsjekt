@@ -99,7 +99,7 @@ public class MainMenu implements Screen {
 //				FROGGERTESTER_IKKE_PUSH.WIDTH = 1280;
 //				FROGGERTESTER_IKKE_PUSH.HEIGHT = 720;
 				Gdx.graphics.setWindowedMode(FROGGERTESTER_IKKE_PUSH.WIDTH, FROGGERTESTER_IKKE_PUSH.HEIGHT); //Setter vindustørelsen den oppringelige 1280x720.
-				((Game) Gdx.app.getApplicationListener()).setScreen(new Levels()); //Sender brukeren til spillet. Levels() er kart-klassen
+				((Game) Gdx.app.getApplicationListener()).setScreen(new LevelsMenu()); //Sender brukeren til spillet. Levels() er kart-klassen
 			}
 		});
 		buttonPlay.pad(30); //Lager mellomromm på sidene av knappen. uten er kantene helt intill skriften
@@ -117,7 +117,7 @@ public class MainMenu implements Screen {
 				((Game) Gdx.app.getApplicationListener()).setScreen(new Option()); //Sender brukeren til spillet. Levels() er kart-klassen
 			}
 		});
-		buttonOption.pad(30); //Lager mellomromm på sidene av knappen. uten er kantene helt intill skriften
+		buttonOption.pad(20); //Lager mellomromm på sidene av knappen. uten er kantene helt intill skriften
 		
 		//Lager heading
 		heading = new Label(FROGGERTESTER_IKKE_PUSH.TITLE, new LabelStyle(white, Color.WHITE));
